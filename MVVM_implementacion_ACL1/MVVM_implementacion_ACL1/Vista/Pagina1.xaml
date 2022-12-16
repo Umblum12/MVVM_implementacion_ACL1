@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM_implementacion_ACL1.Vista.Pagina1"
+             NavigationPage.HasNavigationBar="False" >
+    <ContentPage.Content>
+        <StackLayout Background="red">
+            <Grid>
+                <Image Source="leftarrow.png"
+               VerticalOptions="Start"
+               HeightRequest="50"
+               HorizontalOptions="Start"
+               Margin="10">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Volvercommand}"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Center"
+                >
+                <Label
+                    Text="#1"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    ></Label>
+                <Entry
+                    PlaceholderColor="White"
+                    Placeholder="Escriba un número"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{Binding N1}"
+                    Keyboard="Numeric"
+                    ></Entry>
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Center"
+                >
+                <Label
+                    Text="#2"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    ></Label>
+                <Entry
+                    PlaceholderColor="White"
+                    Placeholder="Escriba un número"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{Binding N2}"
+                    Keyboard="Numeric"
+                    ></Entry>
+            </StackLayout>
+            <Button Text="Sumar"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                    Command="{Binding Suymarcommand}"
+                    TextTransform="None"
+                    FontAttributes="Bold"
+                    CornerRadius="5"
+                    BackgroundColor="red" BorderColor="blue" TextColor="blue" BorderWidth="1"
+                    />
+            <Label
+                Text="{Binding R}"
+                TextColor="White"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                FontSize="35"
+                ></Label>
+            <Button Text="Ir a página 2"
+                HorizontalOptions="Center"
+                    Command="{Binding Navegarpagina2command}"
+                    FontAttributes="Bold"
+                    CornerRadius="5" BackgroundColor="red" BorderColor="blue" TextColor="blue" BorderWidth="1"
+                    />
+            <StackLayout HorizontalOptions="Center"
+                         Orientation="Horizontal"
+                         >
+                <Label TextColor="Blue"
+                       FontAttributes="Bold"
+                       Text="Picker: "
+                       VerticalOptions="Center"/>
+                <Picker HorizontalOptions="FillAndExpand"
+                        Title="Selecciones una opción"
+                        SelectedItem="{Binding SeleccionarTipoUsuario}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Administrador</x:String>
+                            <x:String>Empleado</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </StackLayout>
+            <StackLayout
+                HorizontalOptions="Center"
+                         Orientation="Horizontal">
+                <DatePicker
+                    TextColor="Black" Date="07/22/2002" Format="d" x:Name="datapicker"
+                    ></DatePicker>
+                <Button Text="Show date" BackgroundColor="red" BorderColor="blue" TextColor="blue" BorderWidth="1" Clicked="ShowDate"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
